@@ -31,7 +31,17 @@ class ViewController: UITableViewController {
             displayOLockRow.isHidden = true;
         }else{
             displayTimeRow.isHidden = !displayTimeRow.isHidden;
-            timeZoneLabel.text = "Hanoi >"
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = UIImage(named:"right-arrow")
+            let imageOffsetY: CGFloat = 0
+            imageAttachment.bounds = CGRect(x: 3, y: imageOffsetY, width:10, height:10)
+            let attachmentString = NSAttributedString(attachment: imageAttachment)
+            let completeText = NSMutableAttributedString(string: "Hanoi")
+            completeText.append(attachmentString)
+            let textAfterIcon = NSAttributedString(string: "")
+            completeText.append(textAfterIcon)
+            self.timeZoneLabel.textAlignment = .center
+            self.timeZoneLabel.attributedText = completeText
         }
     }
     
